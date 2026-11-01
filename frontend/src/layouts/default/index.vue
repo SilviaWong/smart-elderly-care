@@ -59,6 +59,10 @@
           <el-icon><DataLine /></el-icon>
           <template #title>统计报表</template>
         </el-menu-item>
+        <el-menu-item index="/regulatory">
+          <el-icon><Files /></el-icon>
+          <template #title>监管报送</template>
+        </el-menu-item>
         <el-menu-item index="/system">
           <el-icon><Setting /></el-icon>
           <template #title>系统设置</template>
@@ -122,6 +126,7 @@ import {
   Cpu,
   Warning,
   DataLine,
+  Files,
   Setting,
   Fold,
   Expand,

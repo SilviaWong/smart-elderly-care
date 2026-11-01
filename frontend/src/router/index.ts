@@ -85,6 +85,12 @@ const routes: RouteRecordRaw[] = [
         meta: { title: '统计报表' }
       },
       {
+        path: 'regulatory',
+        name: 'Regulatory',
+        component: () => import('@/views/regulatory/index.vue'),
+        meta: { title: '监管报送' }
+      },
+      {
         path: 'system',
         name: 'System',
         component: () => import('@/views/system/index.vue'),
