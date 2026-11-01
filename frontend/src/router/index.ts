@@ -39,13 +39,13 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'serviceorder',
         name: 'ServiceOrder',
-        component: () => import('@/views/placeholder/index.vue'),
+        component: () => import('@/views/serviceorder/index.vue'),
         meta: { title: '服务工单' }
       },
       {
         path: 'health',
         name: 'Health',
-        component: () => import('@/views/placeholder/index.vue'),
+        component: () => import('@/views/health/index.vue'),
         meta: { title: '健康管理' }
       },
       {
