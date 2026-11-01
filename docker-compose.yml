@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: smart-elderly-care-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: smart_elderly_care
+      MYSQL_USER: elderlycare
+      MYSQL_PASSWORD: elderlycare123
+      TZ: Asia/Shanghai
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_0900_ai_ci
+      - --default-time-zone=+08:00
+      - --lower-case-table-names=1
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+      - ./database/seed/01_system_seed.sql:/docker-entrypoint-initdb.d/02_system_seed.sql:ro
+      - ./database/seed/02_elder_seed.sql:/docker-entrypoint-initdb.d/03_elder_seed.sql:ro
+
+volumes:
+  mysql-data:
+    driver: local

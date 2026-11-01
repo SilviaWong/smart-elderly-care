@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DB_HOST:127.0.0.1}:${DB_PORT:3306}/${DB_NAME:smart_elderly_care}?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: ${DB_USER:elderlycare}
+    password: ${DB_PASSWORD:elderlycare123}
+    hikari:
+      pool-name: ElderlyCareHikariCP
+      minimum-idle: 2
+      maximum-pool-size: 10
+      idle-timeout: 30000
+      connection-timeout: 10000
+      max-lifetime: 1800000
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.example.elderlycare.modules.*.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+logging:
+  level:
+    root: INFO
+    com.example.elderlycare: DEBUG
+    org.springframework.security: INFO
+    com.baomidou.mybatisplus: DEBUG
