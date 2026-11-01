@@ -75,7 +75,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'risk',
         name: 'Risk',
-        component: () => import('@/views/placeholder/index.vue'),
+        component: () => import('@/views/risk/index.vue'),
         meta: { title: '安全风险' }
       },
       {
