@@ -81,7 +81,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'report',
         name: 'Report',
-        component: () => import('@/views/placeholder/index.vue'),
+        component: () => import('@/views/report/index.vue'),
         meta: { title: '统计报表' }
       },
       {

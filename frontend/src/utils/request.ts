@@ -34,6 +34,11 @@ service.interceptors.request.use(
 // 响应拦截器
 service.interceptors.response.use(
   (response: AxiosResponse<ApiResponse>) => {
+    // 处理文件下载 Blob 响应
+    if (response.config.responseType === 'blob' || response.data instanceof Blob) {
+      return response as any
+    }
+
     const res = response.data
     // 业务状态码 0 代表成功
     if (res.code === 0) {
