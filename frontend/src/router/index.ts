@@ -69,7 +69,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'iot',
         name: 'IoT',
-        component: () => import('@/views/placeholder/index.vue'),
+        component: () => import('@/views/iot/index.vue'),
         meta: { title: '设备物联' }
       },
       {
