@@ -82,7 +82,7 @@ class ElderServiceTest {
 
         assertEquals(ErrorCode.CONFLICT.getCode(), ex.getCode());
         assertTrue(ex.getMessage().contains("在当前机构已存在"));
-        verify(elderMapper, never()).insert(any());
+        verify(elderMapper, never()).insert(any(Elder.class));
     }
 
     @Test
@@ -141,7 +141,7 @@ class ElderServiceTest {
         });
 
         assertEquals(ErrorCode.ORG_ACCESS_DENIED.getCode(), ex.getCode());
-        verify(elderMapper, never()).updateById(any());
+        verify(elderMapper, never()).updateById(any(Elder.class));
     }
 
     @Test

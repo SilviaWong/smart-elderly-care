@@ -21,4 +21,6 @@ public interface ElderService {
     void archiveElder(Long id);
 
     Elder getElderEntityById(Long id);
+
+    void updateElderStatus(Long id, String status);
 }

@@ -33,7 +33,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'admission',
         name: 'Admission',
-        component: () => import('@/views/placeholder/index.vue'),
+        component: () => import('@/views/admission/index.vue'),
         meta: { title: '入住与床位' }
       },
       {

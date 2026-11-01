@@ -44,4 +44,8 @@ public class PageResult<T> implements Serializable {
                 .totalPages(totalPages)
                 .build();
     }
+
+    public static <T> PageResult<T> empty(long pageNum, long pageSize) {
+        return of(Collections.emptyList(), 0L, pageNum, pageSize);
+    }
 }

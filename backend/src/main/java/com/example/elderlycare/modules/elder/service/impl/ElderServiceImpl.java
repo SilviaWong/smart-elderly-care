@@ -241,6 +241,16 @@ public class ElderServiceImpl implements ElderService {
         return checkElderOrgAccess(id);
     }
 
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void updateElderStatus(Long id, String status) {
+        Elder elder = checkElderOrgAccess(id);
+        elder.setStatus(status);
+        elder.setUpdatedBy(OrgContextHolder.getUserId());
+        elder.setUpdatedAt(LocalDateTime.now());
+        elderMapper.updateById(elder);
+    }
+
     private Elder checkElderOrgAccess(Long id) {
         Elder elder = elderMapper.selectById(id);
         if (elder == null) {

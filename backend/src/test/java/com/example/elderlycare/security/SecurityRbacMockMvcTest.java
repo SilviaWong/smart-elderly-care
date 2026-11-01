@@ -21,9 +21,13 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.example.elderlycare.config.TestMyBatisConfig;
+import org.springframework.context.annotation.Import;
+
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
+@Import(TestMyBatisConfig.class)
 class SecurityRbacMockMvcTest {
 
     @Autowired
@@ -31,6 +35,9 @@ class SecurityRbacMockMvcTest {
 
     @MockBean
     private SysUserService sysUserService;
+
+    @MockBean
+    private CustomUserDetailsService customUserDetailsService;
 
     @Test
     @DisplayName("未携带 Token 访问受保护的系统用户 API 返回 401")

@@ -109,6 +109,6 @@ class SysUserServiceOrgIsolationTest {
 
         assertEquals(ErrorCode.ORG_ACCESS_DENIED.getCode(), ex.getCode());
         assertTrue(ex.getMessage().contains("无权访问或修改其他机构"));
-        verify(sysUserMapper, never()).updateById(any());
+        verify(sysUserMapper, never()).updateById(any(SysUser.class));
     }
 }
