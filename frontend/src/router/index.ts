@@ -57,7 +57,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'dining',
         name: 'Dining',
-        component: () => import('@/views/placeholder/index.vue'),
+        component: () => import('@/views/dining/index.vue'),
         meta: { title: '餐饮管理' }
       },
       {
