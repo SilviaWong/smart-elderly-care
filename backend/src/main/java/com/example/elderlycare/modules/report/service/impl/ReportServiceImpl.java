@@ -330,7 +330,8 @@ public class ReportServiceImpl implements ReportService {
 
     private File getExportFileObject(Long taskId, String fileName) {
         String baseDir = System.getProperty("user.dir") + File.separator + "exports";
-        return new File(baseDir + File.separator + "task_" + taskId + "_" + fileName);
+        String safeFileName = StringUtils.hasText(fileName) ? new File(fileName).getName() : "report.csv";
+        return new File(baseDir + File.separator + "task_" + taskId + "_" + safeFileName);
     }
 
     private String escapeCsvField(String field) {
